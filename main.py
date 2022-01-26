@@ -11,7 +11,8 @@ from subprocess import call
 from tkinter import messagebox
 from time import sleep, perf_counter
 from PIL import ImageTk, Image
-from openpyxl import Workbook
+from openpyxl import Workbook, drawing
+import openpyxl
 import os
 
 global Login_Username
@@ -39,11 +40,12 @@ def firstOption():
 
 def secondOption():
     print(os.getcwd())
-    #path = "C:\\Users"
-    #wb_obj = openpyxl.load_workbook(path)
-    #sheet_obj = wb_obj.active
-    #cell_obj = sheet_obj.cell(row = 1, column = 1)
-    #print(cell_obj.value)
+    #path = os.getcwd + "/" + "measurement.xlsx"
+    path = "C:\\Users\\USer\\Downloads\\TkinterProject-main\\TkinterProject-main\\measurement.xlsx"
+    wb_obj = openpyxl.load_workbook(path)
+    sheet_obj = wb_obj.active
+    cell_obj = sheet_obj.cell(row = 1, column = 1)
+    print(cell_obj.value)
 
 
 def thirdOption():
