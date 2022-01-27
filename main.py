@@ -14,6 +14,10 @@ from PIL import ImageTk, Image
 from openpyxl import Workbook, drawing
 import openpyxl
 import os
+from xlsx import Read
+import pandas as pd
+import numpy as np
+
 
 global Login_Username
 #Database Connection
@@ -39,14 +43,22 @@ def firstOption():
     call(["python", "canvas.py"])
 
 def secondOption():
-    print(os.getcwd())
+    #print(os.getcwd())
     #path = os.getcwd + "/" + "measurement.xlsx"
-    path = "C:\\Users\\USer\\Downloads\\TkinterProject-main\\TkinterProject-main\\measurement.xlsx"
-    wb_obj = openpyxl.load_workbook(path)
-    sheet_obj = wb_obj.active
-    cell_obj = sheet_obj.cell(row = 1, column = 1)
-    print(cell_obj.value)
+    #path = "C:\\Users\\USer\\Downloads\\TkinterProject-main\\TkinterProject-main\\measurement.xlsx"
+    #wb_obj = openpyxl.load_workbook(path)
+    #sheet_obj = wb_obj.active
+    #cell_obj = sheet_obj.cell(row = 1, column = 1)
+    #print(cell_obj.value)
+    p1 = Read.Read("CSV.csv")
+    #p1.read()
+    #print(p1.returnfilename())
+    pd.options.display.max_rows = 9999
 
+    df = pd.read_csv(p1.returnfilename())
+
+    print(df)
+    
 
 def thirdOption():
     ExampleOfWork = Tk()
