@@ -19,15 +19,39 @@ def paint(event):
 
 def save_canvas():
     print("save")
-    c.postscript(file="canvas.ps", colormode="color")
-    img = Image.open("canvas.ps")
-    img.save("canvas.jpg", "JPEG")
+    application_window = tk.Tk()
+    answer = simpledialog.askstring("Input", "Enter image name",parent=application_window)
+    if answer is not None:
+        c.postscript(file=answer + ".ps", colormode="color")
+        img = Image.open(answer + ".ps")
+        img.save(answer+ ".jpg", "JPEG")
+    else:
+        print("You did not enter a name")
 
 def submit_form():
     print("Hello")
 
+def blackpaint(event):
+    x1, y1 = (event.x - 1), (event.y - 1)
+    x2, y2 = (event.x + 1), (event.y + 1)
+    c.create_oval(x1, y1, x2, y2, fill="black",outline="black")
+def switchcolor():
+    c.unbind("<B1-Motion>")
+    c.bind("<B1-Motion>", blackpaint)
+
+def whitepaint():
+    x1, y1 = (event.x - 1), (event.y - 1)
+    x2, y2 = (event.x + 1), (event.y + 1)
+    c.create_oval(x1, y1, x2, y2, fill="white",outline="white")
 
 
+def switchcolor():
+    c.unbind("<B1-Motion>")
+    c.bind("<B1-Motion>", blackpaint)
+    
+def eraser():
+    c.unbind("<B1-Motion>")
+    c.bind("<B1-Motion>", whitepaint)
 
 ### Section
 
@@ -106,15 +130,17 @@ if __name__ == '__main__':
     b1.pack(side=tk.LEFT, padx=5, pady=5)
     b2 = tk.Button(root, text='Quit', command=root.quit)
     b2.pack(side=tk.LEFT, padx=5, pady=5)
+    b3 = tk.Button(root, text='Save Canvas', command=save_canvas)
+    b3.pack(side=tk.TOP, padx=5, pady=5)
+    b4 = tk.Button(root, text='Black', command=switchcolor)
+    b4.pack(side=tk.TOP, padx=5, pady=5)
+    b5 = tk.Button(root, text='Eraser', command=eraser)
+    b5.pack(side=tk.TOP, padx=5, pady=5)
     ####
     #Canvas
     c = Canvas(master=root, width=canvas_width, height=canvas_height,bg="white")
     c.pack(expand=YES, fill=BOTH)
     c.bind("<B1-Motion>", paint)
-
-    #Save Canvas
-    Save = tk.Button(root, text ="Save Canvas", command = save_canvas)
-    Save.pack()
 
     ###
     root.mainloop()
