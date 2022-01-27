@@ -18,6 +18,7 @@ from xlsx import Read
 import pandas as pd
 import numpy as np
 from tkinter import simpledialog
+import webbrowser
 
 global Login_Username
 #Database Connection
@@ -104,7 +105,8 @@ def logout():
     messagebox.showinfo("Log Out", "Log Out Successful") 
     frame.lift()
 
-
+def PriceRate():
+    webbrowser.open("https://google.com")
 
 def openNewWindow(Login_Username,arugement):
     repeated = arugement
@@ -160,6 +162,9 @@ def openNewWindow(Login_Username,arugement):
 
         F = tk.Button(MainProgram, text ="Log Out", command = logout)
         F.pack()
+
+        G = tk.Button(MainProgram, text ="Price Rate", command = PriceRate)
+        G.pack()
 
         #start_time = perf_counter()
         #task()
