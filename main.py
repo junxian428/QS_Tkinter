@@ -132,14 +132,18 @@ def openNewWindow(Login_Username,arugement):
         B.pack()
     
        
-        C = tk.Button(MainProgram, text ="Example of Work", command = thirdOption)
+        C = tk.Button(MainProgram, text ="Update CSV", command = thirdOption)
         C.pack()
 
-        D = tk.Button(MainProgram, text ="Exit", command = quit)
+         
+        D = tk.Button(MainProgram, text ="Delete CSV", command = thirdOption)
         D.pack()
 
-        E = tk.Button(MainProgram, text ="Log Out", command = logout)
+        E = tk.Button(MainProgram, text ="Exit", command = quit)
         E.pack()
+
+        F = tk.Button(MainProgram, text ="Log Out", command = logout)
+        F.pack()
 
         #start_time = perf_counter()
         #task()
