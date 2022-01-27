@@ -78,6 +78,7 @@ def secondOption():
             tk.Label(ReadTk, text= "_______________________________________").pack()
             tk.Label(ReadTk, text= df).pack()
             tk.Label(ReadTk, text= "_______________________________________").pack()
+            tk.Label(ReadTk, text= "CAD Canvas Drawing").pack()
             ReadTk.mainloop()
         except Exception as ex:
             print("Error: " + str(ex))
