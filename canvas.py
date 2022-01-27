@@ -27,38 +27,33 @@ def submit_form():
 
 ### Section
 
-fields = 'Username', 'Password'
+fields = 'Job', 'Type Of Work','Bill No','Element No','Slip No','Heading','Description','Unit','Quantity','Length','Width','Height','Taker Off'
 
 def fetch(entries):
     num = 0
     username = ""
     password = ""
     for entry in entries:
-        #field = entry[0]
+        field = entry[0]
         text  = entry[1].get()
-        #print('%s: "%s"' % (field, text)) 
+        print('%s: "%s"' % (field, text)) 
         #print(text)
-        if(num % 2 == 0):
-            username = text
-        else:
-            password = text
+     
 
-        num = num + 1
-
-    print("Username is " + username)
-    print("Password is " + password)
-    try:
-        conn = sqlite3.connect('LoginUser.db')
-        print("sqlite open successfully")
-        try:
-            cur = conn.cursor()
-            cur.execute("INSERT INTO User (Username, Password) VALUES ('" + username + "', '" + password + "');")
-            messagebox.showinfo("Register", "Register Successful")
-            conn.commit()
-        except Exception as e:
-            print(e)
-    except:
-        print("An exception occurred")             
+    #print("Username is " + username)
+    #print("Password is " + password)
+    #try:
+        #conn = sqlite3.connect('LoginUser.db')
+        #print("sqlite open successfully")
+        #try:
+            #cur = conn.cursor()
+            #cur.execute("INSERT INTO User (Username, Password) VALUES ('" + username + "', '" + password + "');")
+            #messagebox.showinfo("Register", "Register Successful")
+            #conn.commit()
+        #except Exception as e:
+            #print(e)
+    #except:
+        #print("An exception occurred")             
 
 def makeform(root, fields):
     entries = []

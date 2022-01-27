@@ -69,7 +69,9 @@ def secondOption():
             ReadTk.geometry("500x500")
             tk.Label(ReadTk, text= "CSV File Name: " + answer).pack()
             tk.Label(ReadTk, text= "CSV File Data: ").pack()
+            tk.Label(ReadTk, text= "_______________________________________").pack()
             tk.Label(ReadTk, text= df).pack()
+            tk.Label(ReadTk, text= "_______________________________________").pack()
             ReadTk.mainloop()
         except Exception as ex:
             print("Error: " + str(ex))
