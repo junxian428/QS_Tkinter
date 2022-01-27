@@ -64,6 +64,13 @@ def secondOption():
             pd.options.display.max_rows = 9999
             df = pd.read_csv(p1.returnfilename())
             print(df)
+            ReadTk = tk.Tk()
+            ReadTk.title("Read CSV")
+            ReadTk.geometry("500x500")
+            tk.Label(ReadTk, text= "CSV File Name: " + answer).pack()
+            tk.Label(ReadTk, text= "CSV File Data: ").pack()
+            tk.Label(ReadTk, text= df).pack()
+            ReadTk.mainloop()
         except Exception as ex:
             print("Error: " + str(ex))
             messagebox.showinfo("Error", "Error: " + str(ex))
