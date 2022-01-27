@@ -39,7 +39,7 @@ def fetch(entries):
     password = ""
     application_window = tk.Tk()
  
-    answer = simpledialog.askstring("Input", "Create New File. Enter File Name (.csv)",parent=application_window)
+    answer = simpledialog.askstring("Input", "Create New File. Enter File Name (.xlsx)",parent=application_window)
     if answer is not None:
         header = [u'Job', u'Type Of Work', u'Bill No', u'Element No', u'Slip No', u'Heading', u'Description', u'Unit', u'Quantity', u'Length', u'Width', u'Height', u'Taker Off']
         wb = Workbook()
