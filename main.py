@@ -62,7 +62,8 @@ def secondOption():
             #p1.read()
             #print(p1.returnfilename())
             pd.options.display.max_rows = 9999
-            df = pd.read_csv(p1.returnfilename())
+            #df = pd.read_csv(p1.returnfilename(),encoding='latin-1', on_bad_lines='skip')
+            df = pd.read_csv(p1.returnfilename(), quotechar='"', delimiter=';')
             print(df)
             ReadTk = tk.Tk()
             ReadTk.title("Read CSV")
@@ -77,7 +78,7 @@ def secondOption():
             print("Error: " + str(ex))
             messagebox.showinfo("Error", "Error: " + str(ex))
     else:
-        print("You don't have a first name?")
+        print("You did not enter a name")
 
     
 

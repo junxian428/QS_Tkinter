@@ -4,6 +4,10 @@ from PIL import ImageGrab
 from PIL import Image
 import os
 import subprocess
+from xlsx import CSVArray
+from tkinter import simpledialog
+from openpyxl import Workbook, drawing
+import openpyxl
 
 canvas_width = 300
 canvas_height = 300
@@ -33,11 +37,37 @@ def fetch(entries):
     num = 0
     username = ""
     password = ""
-    for entry in entries:
-        field = entry[0]
-        text  = entry[1].get()
-        print('%s: "%s"' % (field, text)) 
-        #print(text)
+    application_window = tk.Tk()
+ 
+    answer = simpledialog.askstring("Input", "Create New File. Enter File Name (.csv)",parent=application_window)
+    if answer is not None:
+        header = [u'Job', u'Type Of Work', u'Bill No', u'Element No', u'Slip No', u'Heading', u'Description', u'Unit', u'Quantity', u'Length', u'Width', u'Height', u'Taker Off']
+        wb = Workbook()
+        ws1 = wb.active
+        ws1.title = "range names"
+        ws1.append(header)
+        dest_filename = answer
+
+        #for entry in entries:
+            #field = entry[0]
+            #text  = entry[1].get()
+            #print('%s: "%s"' % (field, text)) 
+            #print(text)
+        ars = []
+        for row in entries:
+            text = row[1].get()
+            #print(text)
+        
+            ars.append(text)
+        for x in ars:
+            print(x)
+        ws1.append(ars)
+        wb.save(dest_filename)
+        
+
+    else:
+        print("You did not enter a name")
+
      
 
     #print("Username is " + username)
