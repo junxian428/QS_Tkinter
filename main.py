@@ -17,7 +17,7 @@ import os
 from xlsx import Read
 import pandas as pd
 import numpy as np
-
+from tkinter import simpledialog
 
 global Login_Username
 #Database Connection
@@ -50,14 +50,26 @@ def secondOption():
     #sheet_obj = wb_obj.active
     #cell_obj = sheet_obj.cell(row = 1, column = 1)
     #print(cell_obj.value)
-    p1 = Read.Read("CSV.csv")
-    #p1.read()
-    #print(p1.returnfilename())
-    pd.options.display.max_rows = 9999
+    
+    application_window = tk.Tk()
 
-    df = pd.read_csv(p1.returnfilename())
+    answer = simpledialog.askstring("Input", "Enter the File Name",parent=application_window)
+    if answer is not None:
+        #print("Your first name is ", answer)
+        try:
+            #p1 = Read.Read("CSV.csv") 
+            p1 = Read.Read(answer)
+            #p1.read()
+            #print(p1.returnfilename())
+            pd.options.display.max_rows = 9999
+            df = pd.read_csv(p1.returnfilename())
+            print(df)
+        except Exception as ex:
+            print("Error: " + str(ex))
+            messagebox.showinfo("Error", "Error: " + str(ex))
+    else:
+        print("You don't have a first name?")
 
-    print(df)
     
 
 def thirdOption():
@@ -112,11 +124,11 @@ def openNewWindow(Login_Username,arugement):
 
         tk.Label(MainProgram, text= "Current Username: " + Login_Username).pack()
 
-        A = tk.Button(MainProgram, text ="Start new taking off", command = firstOption)
+        A = tk.Button(MainProgram, text ="Create CSV & Canvas", command = firstOption)
         A.pack()
 
        
-        B = tk.Button(MainProgram, text ="Continue Saved File", command = secondOption)
+        B = tk.Button(MainProgram, text ="Read CSV File", command = secondOption)
         B.pack()
     
        
