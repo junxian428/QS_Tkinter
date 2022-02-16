@@ -25,6 +25,7 @@ global Login_Username
 try:
    print("sqlite open successfully")
    conn = sqlite3.connect('LoginUser.db')
+   
 except:
   print("An exception occurred")
 
@@ -41,7 +42,7 @@ canvas_height = 300
 
     #call(["python", "main.py"])
 def firstOption():
-    call(["python", "canvas.py"])
+    call(["python", "ColumnBeam.py"])
 
 def secondOption():
     #print(os.getcwd())
@@ -141,30 +142,18 @@ def openNewWindow(Login_Username,arugement):
         #ThreadForUpdatingTime.start()
 
         tk.Label(MainProgram, text= "Current Username: " + Login_Username).pack()
+        tk.Label(MainProgram, text = my_text).pack()
 
-        A = tk.Button(MainProgram, text ="Create CSV & Canvas", command = firstOption)
+        A = tk.Button(MainProgram, text ="Taking Off", command = firstOption)
         A.pack()
-
-       
-        B = tk.Button(MainProgram, text ="Read CSV File", command = secondOption)
-        B.pack()
-    
-       
-        C = tk.Button(MainProgram, text ="Update CSV", command = thirdOption)
-        C.pack()
-
-         
-        D = tk.Button(MainProgram, text ="Delete CSV", command = thirdOption)
-        D.pack()
-
-        E = tk.Button(MainProgram, text ="Exit", command = quit)
-        E.pack()
+        G = tk.Button(MainProgram, text ="Price Rate", command = PriceRate)
+        G.pack()
 
         F = tk.Button(MainProgram, text ="Log Out", command = logout)
         F.pack()
 
-        G = tk.Button(MainProgram, text ="Price Rate", command = PriceRate)
-        G.pack()
+        E = tk.Button(MainProgram, text ="Exit", command = quit)
+        E.pack()
 
         #start_time = perf_counter()
         #task()
