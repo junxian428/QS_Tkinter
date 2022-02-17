@@ -5,10 +5,13 @@ root = tk.Tk()
 
 def concrete():
    print("Hello Column")
-   
+   call(["python", "beam-widget.py"])
+
 
 def formwork():
     print("Hello Beam")
+    call(["python", "Beam_Formwork.py"])
+
   
 def reinforcement():
     print("Hello Reinforcement")
