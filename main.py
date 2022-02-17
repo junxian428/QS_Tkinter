@@ -107,7 +107,7 @@ def logout():
     frame.lift()
 
 def PriceRate():
-    webbrowser.open("https://google.com")
+    webbrowser.open("https://quantitysurveyoronline.com.my/index.html")
 
 def openNewWindow(Login_Username,arugement):
     repeated = arugement

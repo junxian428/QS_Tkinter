@@ -15,6 +15,7 @@ def formwork():
   
 def reinforcement():
     print("Hello Reinforcement")
+    call(["python", "Beam_Reinforcement.py"])
 
 
 A = tk.Button(root, text ="Concrete", command = concrete).pack()
