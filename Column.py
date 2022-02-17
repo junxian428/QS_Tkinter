@@ -9,7 +9,9 @@ def concrete():
 
 
 def formwork():
-    print("Hello Beam")
+    print("Hello Formwork")
+    call(["python", "Column_Formwork.py"])
+
   
 def reinforcement():
     print("Hello Reinforcement")
