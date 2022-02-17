@@ -32,21 +32,29 @@ from tkinter import messagebox
     #print("Hello")
 
 
-fields = 'Username', 'Password'
+fields = 'Username', 'Password','Email','Telephone_No'
 
 def fetch(entries):
     num = 0
     username = ""
     password = ""
+    email = ""
+    telephone_no = ""
     for entry in entries:
         #field = entry[0]
         text  = entry[1].get()
         #print('%s: "%s"' % (field, text)) 
         #print(text)
-        if(num % 2 == 0):
+        if(num == 0):
             username = text
-        else:
+        elif(num == 1):
             password = text
+        elif(num ==2):
+            email = text
+        elif(num ==3):
+            telephone_no = text
+        else:
+            print("Error")
 
         num = num + 1
 
@@ -57,7 +65,7 @@ def fetch(entries):
         print("sqlite open successfully")
         try:
             cur = conn.cursor()
-            cur.execute("INSERT INTO User (Username, Password) VALUES ('" + username + "', '" + password + "');")
+            cur.execute("INSERT INTO User (Username, Password,Email,Tel_No) VALUES ('" + username + "', '" + password + "', '" + email + "', '" + telephone_no + "');")
             messagebox.showinfo("Register", "Register Successful")
             conn.commit()
         except Exception as e:
